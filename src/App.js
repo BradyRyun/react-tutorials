@@ -1,23 +1,13 @@
-import logo from './logo.svg';
 import './App.css';
+import {DynamicData} from "./components/dynamic-data";
+import {useRecoilState} from "recoil";
+import {isLoading} from "./state/atom";
 
 function App() {
+    const [loading,] = useRecoilState(isLoading);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <DynamicData loading={loading} />
     </div>
   );
 }
